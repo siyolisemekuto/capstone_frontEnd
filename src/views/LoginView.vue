@@ -1,17 +1,16 @@
+
 <template>
- <div>
-    <h1>Create an account.</h1>
-    <form @submit.prevent="register">
-        <input v-model="name" type="text" name="name" id="name" class="form-control" placeholder="Name"
-         required  >
+  <div class="hello">
+    <h1>Log in to your account.</h1>
+    <form @submit.prevent="login">
+  
         <input v-model="email" type="email" name="email" id="email" class="form-control" placeholder="Email"
          required  >
-        <input v-model="password" type="password" name="password" id="password" class="form-control" 
+        <input v-model="Password" type="password" name="password" id="password" class="form-control" 
         placeholder="Password" required >
   
-      <button type="submit" class="btn">Register</button>
+      <button type="submit" class="btn">Log in</button>
     </form>
-    <router-link :to="{name:'home'}" class="register">Log into your account</router-link>
   </div>   
 </template>
 
@@ -19,17 +18,15 @@
 export default {
   data(){
     return {
-      name:"",
       email: "",
-      password: ""
+      Password: ""
     }
   },
   methods: {
-    register() {
-      return this.$store.dispatch("register", {
-        name:this.name,
+    login() {
+      return this.$store.dispatch("login", {
         email: this.email,
-        password: this.password
+        password: this.Password
       })
     },
 

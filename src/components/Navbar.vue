@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid collapse navbar-collapse">
@@ -6,14 +6,16 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-nav">
-                    <router-link class="nav-link active" :to="{name:'register'}">Log a mood</router-link>
-                    <router-link class="nav-link" :to="{name:'about'}">Mood Trend</router-link>
+                    <Profile/>
+                    <router-link class="nav-link active" :to="{name:'logmood'}">Log a mood</router-link>
+                    <router-link class="nav-link" :to="{name:'record'}">Mood Trend</router-link>
                 </div>
             </div>
         </nav>
     </div>
 </template>
 <script>
+import Profile from "../components/Profile.vue";
 export default {
     name:"Navbar"
 }
