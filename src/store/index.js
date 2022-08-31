@@ -5,21 +5,26 @@ const hostedURL = "https://capstone-mood-tracker.herokuapp.com/"
 export default createStore({
   state: {
     user:null,
-    mood: null
+    moods: null,
+    token:null
   },
   getters: {
   },
   mutations: {
     setUser (state, value) {
       state.user = value;
+    },
+    setToken (state, value) {
+      state.token = value;
     }
   },
   actions: {
-    fetchUser: async(context) => {
-      const res = await axios.get(hostedURL + 'users');
+    fetchUser: async(context,id) => {
+      const res = await(hostedURL + 'users/'+id);
       const { results } = await res.data;
       if (results) {
         context.commit('setUser', results);
+        console.log(result);
       }
     },
     login: async (context,payload) => {
@@ -36,9 +41,23 @@ export default createStore({
         }
       })
       .then(res=>res.json())
-      .then(data => {
-        console.log(data)
-        context.commit('setUser', data);
+      .then(tokendata => {
+        console.log(tokendata)
+        context.commit('setToken', tokendata.token);
+        fetch(hostedURL + "users/verify",{
+          method:"get",
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'x-auth-token':  `${tokendata.token}`
+          },
+        })
+        .then(res => res.json())
+        .then(userdata =>{
+          console.log(userdata.user);
+          context.commit('setUser', userdata.user); 
+        }
+
+        )
         router.push({name: 'about'});
       });
       // let results = res.data;

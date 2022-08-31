@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid collapse navbar-collapse">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fa-solid fa-bars navbar-toggler-icon"></i>
                 </button>
                 <div class="navbar-nav">
                     <Profile/>
@@ -17,8 +17,12 @@
 <script>
 import Profile from "../components/Profile.vue";
 export default {
-    name:"Navbar"
+    name:"Navbar",
+    components:{
+        Profile
+    }
 }
+
 </script>
 <style>
     .navbar-nav {
@@ -29,4 +33,9 @@ export default {
    .nav-link{
     display:block;
    } 
+   button{
+    position:fixed;
+    left:5px;
+    top:5px;
+   }
 </style>

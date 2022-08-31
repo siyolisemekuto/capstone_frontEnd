@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="footer">
         <footer>
             <span>
                 <p>Copyright &copy;2022, All rights reserved. </p>
-                Made by Siyolise Mekuto.
+                <p>Made by Siyolise Mekuto.</p>
             </span>
         </footer>
     </div>
@@ -18,25 +18,18 @@ export default{
 <style scoped>
 footer {
   text-align: center;
-  /* padding-bottom: 5px; */
   background-color: #141414;
   color: white;
-  display: block;
-  height: 70px;
-  display:flex;  
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  height: 60px;
+  
 }
 span{
     padding-bottom: 12px;
 }
-a{
-  text-decoration: none;
-  color: white;
-}
-a:hover{
-    color: #C7A17F;
+
+.footer{
+    position: fixed;
+    bottom:0;
+    width:100vh;
 }
 </style>
