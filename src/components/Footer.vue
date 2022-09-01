@@ -18,9 +18,10 @@ export default{
 <style scoped>
 footer {
   text-align: center;
-  background-color: #141414;
+  background-color: #2B8682;
   color: white;
   height: 60px;
+  width:100vw;
   
 }
 span{
@@ -30,6 +31,7 @@ span{
 .footer{
     position: fixed;
     bottom:0;
-    width:100vh;
+    left:0;
+    width:100vw;
 }
 </style>

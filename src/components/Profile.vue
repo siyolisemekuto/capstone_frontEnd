@@ -1,6 +1,6 @@
 <template>
     <div  v-if="user" :user="user">
-       <img :src="ProfileImage"/>
+       <img :src="user.image" alt="Avatar" class="avatar"/>
        <ul>
         <li>Name:{{user.name}}</li>
         <li>Email:{{user.email}}</li>
@@ -24,4 +24,10 @@ export default {
    ul{
     list-style: none;
    } 
+   .avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
 </style>

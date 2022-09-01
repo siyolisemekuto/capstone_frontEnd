@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!user">
+  <div v-if="user">
   <Navbar/>
   </div>
   <router-view/>
@@ -14,7 +14,13 @@ export default {
     components: { 
       Navbar,
       Footer 
-    }
+    },
+    computed:{
+      user(){
+        return this.$store.state.user
+      }
+    },
+    
 }
 </script>
 <style>
@@ -30,8 +36,8 @@ export default {
 }
 :root{
   --main-bg-color:var(#D3EAE8);
-  --accent:var(#2B8682);
-  --nav-color:var(#6495ED)
+  --nav-color:var(#2B8682);
+  --accent:var(#6495ED);
 }
 
 nav {
