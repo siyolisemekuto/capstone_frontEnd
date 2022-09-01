@@ -51,14 +51,34 @@ export default {
 	flex-flow:column;
 	width:5%;
 	min-height:328px;	
-	height:100%;
-	background-color: blue;
+	height:80%;
+	background-color: #2B8682;
 	-webkit-transition: width 1s;
 	z-index:1;
 	float:left;
 	overflow:hidden;
-}
+    }
 .navbar:hover{
-	width: 20%;
+	width: 70%;
+    }
+nav ul li a {
+    position: relative;
+    left:0;
+    }
+nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #6495ED;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
 }
+nav ul li a:hover::after{
+    width: 100%;
+}
+.router-link-exact-active {
+  color: #6495ED !important;
+} 
 </style>
