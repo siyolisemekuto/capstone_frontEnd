@@ -11,7 +11,7 @@
   
       <button type="submit" class="btn">Register</button>
     </form>
-    <router-link :to="{name:'home'}" class="register">Log into your account</router-link>
+    <router-link :to="{name:'login'}" class="login">Log into your account</router-link>
   </div>   
 </template>
 
