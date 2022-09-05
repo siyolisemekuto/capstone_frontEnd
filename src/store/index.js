@@ -113,7 +113,23 @@ mood:null
         context.commit('setMood', mooddata);
         router.push({name: 'record'});
       });
-    }
+    },
+    showRecord: async (context,payload) => {
+      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/view-all`,{
+        method:"GET",
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'x-auth-token':  `${payload.token}`
+        },
+      })
+      .then(res=>res.json())
+      .then(recorddata => {
+        console.log(data)
+        context.commit('setMood', recorddata)
+      });
+
+    },
+    
   },
   modules: {
   },

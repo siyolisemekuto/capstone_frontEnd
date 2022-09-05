@@ -1,5 +1,4 @@
 <template>
-    <div>
         <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">{{mood.rating}}</h5>
@@ -7,13 +6,12 @@
     <p class="card-text">{{mood.notes}}</p>
   </div>
 </div> 
-    </div>
 </template>
 <script>
 export default {
     name:"MoodRecord"
 }
 </script>
-<style lang="">
+<style>
     
 </style>
