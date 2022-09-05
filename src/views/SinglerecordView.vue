@@ -1,14 +1,18 @@
 <template>
-    <div>
-      <h1>this is a single record</h1>
-      <p>this is the id {{$route.params.id}}</p> 
-      <div v-if="mood">
+    <div {{$route.params.id}}>
+      <!-- <h1>this is a single record</h1>
+      <p>this is the id {{$route.params.id}}</p>  -->
+       <div v-if="mood">
         <h1>{{mood.rating}}</h1>
-      </div> 
+      </div>  
+      <MoodRecord/>
     </div>
 </template>
 <script>
+import MoodRecordVue from '@/components/MoodRecord.vue';
 export default {
+    name:"Singlerecord",
+    components:"MoodRecord",
     props:['id'],
     data(){
         return{

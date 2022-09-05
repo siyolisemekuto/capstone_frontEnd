@@ -1,12 +1,15 @@
 import { createStore } from 'vuex';
 import router from '../router';
+import createPersistedState from "vuex-persistedstate";
+
 
 const hostedURL = "https://capstone-mood-tracker.herokuapp.com/"
 export default createStore({
-  state: {
-    user:null,
-    moods: null,
-    token:null
+  state: {  
+token:null,
+user:null,
+mood:null
+    
   },
   getters: {
   },
@@ -14,19 +17,22 @@ export default createStore({
     setUser (state, value) {
       state.user = value;
     },
+    setMood (state, value) {
+      state.mood = value;
+    },
     setToken (state, value) {
       state.token = value;
     }
   },
   actions: {
-    fetchUser: async(context,id) => {
-      const res = await(hostedURL + 'users/'+id);
-      const { results } = await res.data;
-      if (results) {
-        context.commit('setUser', results);
-        console.log(result);
-      }
-    },
+    // fetchUser: async(context,id) => {
+    //   const res = await(hostedURL + 'users/'+id);
+    //   const { results } = await res.data;
+    //   if (results) {
+    //     context.commit('setUser', results);
+    //     console.log(result);
+    //   }
+    // },
     login: async (context,payload) => {
       const {email,password}= await payload
       console.log(email, password);
@@ -83,10 +89,33 @@ export default createStore({
         context.commit('setUser', data);
         router.push({name: 'about'});
       });
-      // let results = res.data;
-      // console.log(results);
+    
+    },
+    logMood: async (context,payload) => {
+      // const {rating,notes}= await payload
+      console.log(payload);
+      context.commit('setUser')
+      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/log-mood`,{
+        method:"POST",
+        body:JSON.stringify({
+          user_id:payload.id,
+          rating: payload.rating,
+          notes: payload.notes
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'x-auth-token':  `${payload.token}`
+        },
+      })
+      .then(res=>res.json())
+      .then(mooddata => {
+        console.log(mooddata)
+        context.commit('setMood', mooddata);
+        router.push({name: 'record'});
+      });
     }
   },
   modules: {
-  }
+  },
+  plugins: [createPersistedState()]
 })

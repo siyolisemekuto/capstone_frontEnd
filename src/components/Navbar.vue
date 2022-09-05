@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid collapse navbar-collapse">
                 <button @click="showNav()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars navbar-toggler-icon"></i>
+                <i class=" navbar-toggler-icon"></i>
                 </button>
                 <div class="navbar-nav">
                     <Profile/>
