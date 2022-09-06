@@ -115,14 +115,13 @@ moods:null
       });
     },
     showRecord: async (context,payload) => {
-      console.log(payload);
-      context.commit('setUser')
-      fetch(`https://capstone-mood-tracker.herokuapp.com/users/:id/view-all`,{
+      console.log(payload)
+      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/${payload.id}/view-all`,{
         method:"GET",
-        // headers: {
-        //   'Content-type': 'application/json; charset=UTF-8',
-        //   'x-auth-token':  `${payload.token}`
-        // },
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'x-auth-token':  `${payload.token}`
+        },
       })
       .then(res=>res.json())
       .then(mooddata => {
