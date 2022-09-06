@@ -8,7 +8,7 @@ export default createStore({
   state: {  
 token:null,
 user:null,
-mood:null
+moods:null
     
   },
   getters: {
@@ -115,18 +115,25 @@ mood:null
       });
     },
     showRecord: async (context,payload) => {
-      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/view-all`,{
+      console.log(payload);
+      context.commit('setUser')
+      fetch(`https://capstone-mood-tracker.herokuapp.com/users/:id/view-all`,{
         method:"GET",
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-          'x-auth-token':  `${payload.token}`
-        },
+        // headers: {
+        //   'Content-type': 'application/json; charset=UTF-8',
+        //   'x-auth-token':  `${payload.token}`
+        // },
       })
       .then(res=>res.json())
-      .then(recorddata => {
-        console.log(data)
-        context.commit('setMood', recorddata)
-      });
+      .then(mooddata => {
+        console.log(mooddata)
+        context.commit('setMood', mooddata);
+      })
+      // console.log(payload)
+      // const results = await mooddata;
+      // if (results) {
+      //   context.commit('setMood', results);
+      // }
 
     },
     

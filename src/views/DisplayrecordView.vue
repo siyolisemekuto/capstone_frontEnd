@@ -6,18 +6,19 @@
     </div>
 </template>
 <script>
-import MoodRecord from '@/components/MoodRecord.vue';
+import MoodRecord from '../components/MoodRecord.vue';
 export default {
     name: "Record",
     components: { MoodRecord },
     computed: {
-        // mood() {
-        //     return this.$store.state.mood;
-        // },
-        showMood(){
-            return this.$store.state.mood;
-        }
-    }
+        moods() {
+            return this.$store.state.moods;
+        },
+        
+    },
+    mounted() {
+        this.$store.dispatch("showRecord");
+    },
 }
 </script>
 <style scoped>
