@@ -71,7 +71,11 @@ export default {
 #mySidenav{
     width:50vw;
 }
-
+nav button{
+  position:fixed;
+  top:5px;
+  right:5px;
+}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}

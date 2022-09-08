@@ -9,7 +9,6 @@ export default createStore({
 token:null,
 user:null,
 moods:null
-    
   },
   getters: {
   },
@@ -90,6 +89,28 @@ moods:null
         router.push({name: 'about'});
       });
     
+    },
+    editUser: async (context,payload) =>{
+      // const {email,name}=payload
+      // console.log(email,name);
+      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}`,{
+        method:"PUT",
+        body:JSON.stringify({
+          user_id:payload.id,
+          email:payload.email,
+          name:payload.name
+        }),
+        headers:{
+          'Content-type': 'application/json; charset=UTF-8',
+          'x-auth-token':  `${payload.token}`
+        }
+      })
+      .then(res=>res.json())
+      .then(profiledata => {
+        console.log(profiledata)
+        context.commit('setUser', profiledata);
+        router.push({name: '/'});
+      });
     },
     logMood: async (context,payload) => {
       // const {rating,notes}= await payload

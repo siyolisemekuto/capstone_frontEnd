@@ -4,6 +4,7 @@
        <ul>
         <li>Name:{{user.name}}</li>
         <li>Email:{{user.email}}</li>
+        <router-link class="nav-link" :to="{name:'editprofile'}">Edit your profile</router-link>
        </ul>
     </div>
 </template>
