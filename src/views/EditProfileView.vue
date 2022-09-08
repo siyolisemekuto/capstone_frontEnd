@@ -18,6 +18,14 @@ export default {
       email: ""
     }
   },
+  computed:{
+  user(){
+    return this.$store.state.user
+  },
+  token(){
+    return this.$store.state.token
+  }
+},
   methods: {
     editUser() {
       return this.$store.dispatch("editUser", {
@@ -25,9 +33,9 @@ export default {
         email: this.email
       })
     },
+}
+}
 
-}
-}
 </script>
 <style scoped>
   .container{

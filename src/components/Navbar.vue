@@ -1,5 +1,5 @@
 <template>
-<nav >
+<!-- <nav >
     <button @click="openNav=!openNav"><i class="fa-solid fa-bars"></i></button>
     <div v-if="openNav">
         <div id="mySidenav" class="sidenav">
@@ -11,7 +11,34 @@
             :file="file">download record in pdf</a>
         </div>
     </div>
-</nav>
+</nav> -->
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      <Profile/>
+    </div>
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <router-link class="dropdown-item active" :to="{name:'logmood'}">Log a mood</router-link>
+        <router-link class="dropdown-item" :to="{name:'record'}">Mood Trend</router-link>
+        <router-link class="dropdown-item" :to="{name:'about'}">How this app works</router-link>
+      </ul>
+      <a href="https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/${payload.id}/view-all" 
+            :file="file">download record in pdf</a>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
@@ -19,22 +46,19 @@ import Profile from "../components/Profile.vue";
 export default {
     name:"Navbar",
     components:{
-        Profile
-    },
-    data(){
-        return{
-        openNav:false
-        }
-    }
+    Profile,
+}
 }
 
 </script>
 
-<style>
- 
-.sidenav {
+<style scoped>
+/* .offcanvas-body{
+  width:70% !important;
+} */
+/* .offcanvas-body {
   height: 100%;
-  width: 0;
+  width: 75%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -45,7 +69,7 @@ export default {
   padding-top: 60px;
   transition: width 3s;
   transition-timing-function:ease-out;
-}   
+}    */
 
 .sidenav router-link {
   padding: 8px 8px 8px 32px;
@@ -71,7 +95,7 @@ export default {
 #mySidenav{
     width:50vw;
 }
-nav button{
+button{
   position:fixed;
   top:5px;
   right:5px;
