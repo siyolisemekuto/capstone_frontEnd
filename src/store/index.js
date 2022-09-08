@@ -91,12 +91,11 @@ moods:null
     
     },
     editUser: async (context,payload) =>{
-      // const {email,name}=payload
-      // console.log(email,name);
-      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}`,{
+      const {email,name}=payload
+      console.log(email,name);
+      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/edit`,{
         method:"PUT",
         body:JSON.stringify({
-          user_id:payload.id,
           email:payload.email,
           name:payload.name
         }),

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-    <h1>Log in to your account.</h1>
+    <h1>Edit your profile.</h1>
     <form @submit.prevent="editUser">
         <input v-model="name" type="name" name="name" id="name" class="form-control" placeholder="Name"
          required  >
@@ -19,7 +19,7 @@ export default {
     }
   },
   methods: {
-    editProfile() {
+    editUser() {
       return this.$store.dispatch("editUser", {
         name: this.name,
         email: this.email
