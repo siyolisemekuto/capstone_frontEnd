@@ -24,14 +24,6 @@ moods:null
     }
   },
   actions: {
-    // fetchUser: async(context,id) => {
-    //   const res = await(hostedURL + 'users/'+id);
-    //   const { results } = await res.data;
-    //   if (results) {
-    //     context.commit('setUser', results);
-    //     console.log(result);
-    //   }
-    // },
     login: async (context,payload) => {
       const {email,password}= await payload
       console.log(email, password);
@@ -91,8 +83,8 @@ moods:null
     
     },
     editUser: async (context,payload) =>{
-      const {email,name}=payload
-      console.log(email,name);
+      console.log(payload);
+      context.commit('setUser')
       fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/edit`,{
         method:"PUT",
         body:JSON.stringify({
