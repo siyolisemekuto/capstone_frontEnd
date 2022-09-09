@@ -30,7 +30,8 @@ export default {
     editUser() {
       return this.$store.dispatch("editUser", {
         name: this.name,
-        email: this.email
+        email: this.email,
+        id:this.user.user_id
       })
     },
 }

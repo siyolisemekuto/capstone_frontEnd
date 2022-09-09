@@ -86,11 +86,11 @@ moods:null
       console.log(payload);
       context.commit('setUser')
       fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/edit`,{
-        method:"PUT",
+        method:"PATCH",
         body:JSON.stringify({
-          user_id:payload.id,
           email:payload.email,
-          name:payload.name
+          name:payload.name,
+          user_id:payload.id
         }),
         headers:{
           'Content-type': 'application/json; charset=UTF-8',
@@ -100,7 +100,7 @@ moods:null
       .then(res=>res.json())
       .then(profiledata => {
         console.log(profiledata)
-        context.commit('setUser', profiledata);
+        context.commit('setUser',payload );
         router.push({name: 'record'});
       });
     },

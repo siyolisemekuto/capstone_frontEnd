@@ -25,7 +25,7 @@ export default {
         
     },
     mounted() {
-       this.Moodshower(this.user.user_id);
+       this.Moodshower(this.user.id);
     },
     methods:{
         Moodshower(id){

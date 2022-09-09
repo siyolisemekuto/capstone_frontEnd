@@ -25,23 +25,25 @@
     <div>
       <Profile/>
     </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+    <div>
+      <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
         Dropdown button
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      </button> -->
+      <ul>
         <router-link class="dropdown-item active" :to="{name:'logmood'}">Log a mood</router-link>
         <router-link class="dropdown-item" :to="{name:'record'}">Mood Trend</router-link>
         <router-link class="dropdown-item" :to="{name:'about'}">How this app works</router-link>
       </ul>
-      <a href="https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/${payload.id}/view-all" 
-            :file="file">download record in pdf</a>
     </div>
+    <a href="https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/${payload.id}/view-all" 
+            :file="file">download record in pdf</a>
+          <br/>
+    <button>Log Out</button>
   </div>
 </div>
 </template>
 
-<script>
+<script scoped>
 import Profile from "../components/Profile.vue";
 export default {
     name:"Navbar",
@@ -95,7 +97,7 @@ export default {
 #mySidenav{
     width:50vw;
 }
-button{
+.btn-primary{
   position:fixed;
   top:5px;
   right:5px;
