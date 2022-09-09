@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div container>
    
    <MoodRecord v-for="mood in moods" :key="mood.id" :mood="mood"/>    
        

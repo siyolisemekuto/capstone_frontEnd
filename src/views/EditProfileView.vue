@@ -31,7 +31,7 @@ export default {
       return this.$store.dispatch("editUser", {
         name: this.name,
         email: this.email,
-        id:this.user.user_id
+        id:this.user.id
       })
     },
 }

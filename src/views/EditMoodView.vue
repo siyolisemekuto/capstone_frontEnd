@@ -19,8 +19,11 @@ export default {
     }
   },
   computed:{
+  user(){
+    return this.$store.state.user
+  },
   mood(){
-    return this.$store.state.mood
+    return this.$store.state.moods
   },
   token(){
     return this.$store.state.token
@@ -31,7 +34,8 @@ export default {
       return this.$store.dispatch("editMood", {
         rating: this.rating,
         notes: this.notes,
-        id:this.mood.mood_id
+        id:this.user.id
+
       })
     },
 }

@@ -104,16 +104,38 @@ moods:null
         router.push({name: 'record'});
       });
     },
+    deleteUser: async (context,payload) =>{
+      console.log(payload);
+      context.commit('setUser')
+      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/edit`,{
+        method:"DELETE",
+        body:JSON.stringify({
+          email:payload.email,
+          name:payload.name,
+          user_id:payload.id
+        }),
+        headers:{
+          'Content-type': 'application/json; charset=UTF-8',
+          'x-auth-token':  `${payload.token}`
+        }
+      })
+      .then(res=>res.json())
+      .then(profiledata => {
+        console.log(profiledata)
+        context.commit('setUser',payload );
+        router.push({name: 'register'});
+      });
+    },
     editMood: async (context,payload) =>{
       console.log(payload);
       context.commit('setMood')
-      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/edit/${payload.id}`,{
+      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/${payload.id}/edit/${payload.id}`,{
         method:"PATCH",
         body:JSON.stringify({
           rating:payload.rating,
           notes:payload.notes,
           user_id:payload.id,
-          mood_id:payload.mood.id
+          mood_id:payload.id
         }),
         headers:{
           'Content-type': 'application/json; charset=UTF-8',
