@@ -1,17 +1,4 @@
 <template>
-<!-- <nav >
-    <button @click="openNav=!openNav"><i class="fa-solid fa-bars"></i></button>
-    <div v-if="openNav">
-        <div id="mySidenav" class="sidenav">
-            <Profile/>
-            <router-link class="nav-link active" :to="{name:'logmood'}">Log a mood</router-link>
-            <router-link class="nav-link" :to="{name:'record'}">Mood Trend</router-link>
-            <router-link class="nav-link" :to="{name:'about'}">How this app works</router-link>
-            <a href="https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/${payload.id}/view-all" 
-            :file="file">download record in pdf</a>
-        </div>
-    </div>
-</nav> -->
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
   <i class="fa-solid fa-bars"></i>
 </button>
@@ -26,15 +13,14 @@
       <Profile/>
     </div>
     <div>
-      <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-        Dropdown button
-      </button> -->
       <ul>
         <router-link class="dropdown-item active" :to="{name:'logmood'}">Log a mood</router-link>
         <router-link class="dropdown-item" :to="{name:'record'}">Mood Trend</router-link>
         <router-link class="dropdown-item" :to="{name:'about'}">How this app works</router-link>
       </ul>
     </div>
+    <router-link class="nav-link" :to="{name:'editmood'}">Edit your mood</router-link>
+      <br/>
     <a href="https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/${payload.id}/view-all" 
             :file="file">download record in pdf</a>
           <br/>

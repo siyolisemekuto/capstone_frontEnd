@@ -104,6 +104,29 @@ moods:null
         router.push({name: 'record'});
       });
     },
+    editMood: async (context,payload) =>{
+      console.log(payload);
+      context.commit('setMood')
+      fetch(`https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/edit/${payload.id}`,{
+        method:"PATCH",
+        body:JSON.stringify({
+          rating:payload.rating,
+          notes:payload.notes,
+          user_id:payload.id,
+          mood_id:payload.mood.id
+        }),
+        headers:{
+          'Content-type': 'application/json; charset=UTF-8',
+          'x-auth-token':  `${payload.token}`
+        }
+      })
+      .then(res=>res.json())
+      .then(data => {
+        console.log(data)
+        context.commit('setMood',payload );
+        router.push({name: 'record'});
+      });
+    },
     logMood: async (context,payload) => {
       // const {rating,notes}= await payload
       console.log(payload);
@@ -141,14 +164,7 @@ moods:null
         console.log(mooddata)
         context.commit('setMood', mooddata);
       })
-      // console.log(payload)
-      // const results = await mooddata;
-      // if (results) {
-      //   context.commit('setMood', results);
-      // }
-
-    },
-    
+    }
   },
   modules: {
   },

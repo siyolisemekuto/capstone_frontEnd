@@ -32,7 +32,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  
+  background-image: url("https://i.postimg.cc/xd0hB520/olena-ivanova-u-KVs2ov-R0-KY-unsplash.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 :root{
   --main-bg-color:var(#D3EAE8);

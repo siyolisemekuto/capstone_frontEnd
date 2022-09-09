@@ -43,5 +43,6 @@ export default {
     display:flex;
     flex-direction: column;
     text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.45));
   }
 </style>
