@@ -21,6 +21,10 @@ moods:null
     },
     setToken (state, value) {
       state.token = value;
+    },
+    logOut (state){
+      state.token = null;
+      state.user = null;
     }
   },
   actions: {

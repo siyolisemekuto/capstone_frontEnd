@@ -5,7 +5,6 @@
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
@@ -24,7 +23,7 @@
     <a href="https://capstone-mood-tracker.herokuapp.com/users/${payload.id}/${payload.id}/view-all" 
             :file="file">download record in pdf</a>
           <br/>
-    <button>Log Out</button>
+    <button @click="logout" >Log Out</button>
   </div>
 </div>
 </template>
@@ -34,7 +33,12 @@ import Profile from "../components/Profile.vue";
 export default {
     name:"Navbar",
     components:{
-    Profile,
+    Profile
+},
+methods:{
+logout() {
+      this.$store.commit("logOut")
+    },
 }
 }
 
