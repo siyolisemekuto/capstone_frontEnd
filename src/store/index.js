@@ -25,6 +25,8 @@ moods:null
     logOut (state){
       state.token = null;
       state.user = null;
+      router.push({name: 'login'});
+
     }
   },
   actions: {
