@@ -6,6 +6,8 @@
          required  >
         <input v-model="email" type="email" name="email" id="email" class="form-control" placeholder="Email"
          required  >
+         <input v-model="user_type" type="text" name="user_type" id="user_type" class="form-control" placeholder="User Type"
+         required  >
         <input v-model="password" type="password" name="password" id="password" class="form-control" 
         placeholder="Password" required >
   

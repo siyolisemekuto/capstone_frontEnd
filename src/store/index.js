@@ -61,14 +61,15 @@ moods:null
       // console.log(results);
     },
     register: async (context,payload) => {
-      const {name,email,password}=payload
+      const {name,email,password, user_type}=payload
       console.log(name, email, password);
       fetch('https://capstone-mood-tracker.herokuapp.com/users/register',{
         method:"POST",
         body:JSON.stringify({
           name: name,
           email: email,
-          password: password
+          password: password,
+          user_type:user_type
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8'
