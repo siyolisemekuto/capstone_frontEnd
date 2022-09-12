@@ -16,6 +16,7 @@
         <router-link class="dropdown-item active" :to="{name:'logmood'}">Log a mood</router-link>
         <router-link class="dropdown-item" :to="{name:'record'}">Mood Trend</router-link>
         <router-link class="dropdown-item" :to="{name:'about'}">How this app works</router-link>
+        <router-link class="dropdown-item" :to="{name:'contact'}">Contact Us</router-link>
       </ul>
     </div>
     <router-link class="nav-link" :to="{name:'editmood'}">Edit your mood</router-link>
