@@ -23,7 +23,8 @@ export default {
     return {
       name:"",
       email: "",
-      password: ""
+      password: "",
+      user_type:""
     }
   },
   methods: {
@@ -31,7 +32,8 @@ export default {
       return this.$store.dispatch("register", {
         name:this.name,
         email: this.email,
-        password: this.password
+        password: this.password,
+        user_type:this.user_type
       })
     },
 
