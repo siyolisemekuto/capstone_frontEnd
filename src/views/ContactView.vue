@@ -2,7 +2,7 @@
     <div>
        <h1>Send us a message.</h1>
       
-       <form @submit.prevent="send" action="https://formspree.io/f/{form_id}" method="post">
+       <form @submit.prevent="send" action="https://formspree.io/f/xaykqznp" method="post">
            <input v-model="message" type="text" name="message" id="message" class="form-control" placeholder="Message"
             required  >
            <input v-model="email" type="email" name="email" id="email" class="form-control" placeholder="Email"
